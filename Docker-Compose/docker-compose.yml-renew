@@ -30,27 +30,18 @@ services:
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
-          "      - 192.168.7.245\n"\
-          "      - 192.168.7.246\n"\
-          "      - 192.168.7.248\n"\
           "  - name: es02\n"\
           "    dns:\n"\
           "      - es02\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
-          "      - 192.168.7.245\n"\
-          "      - 192.168.7.246\n"\
-          "      - 192.168.7.248\n"\
           "  - name: es03\n"\
           "    dns:\n"\
           "      - es03\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
-          "      - 192.168.7.245\n"\
-          "      - 192.168.7.246\n"\
-          "      - 192.168.7.248\n"\
           > config/certs/instances.yml;
           bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
           unzip config/certs/certs.zip -d config/certs;
@@ -79,7 +70,6 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata01:/usr/share/elasticsearch/data
-      - /srv/docker-compose/elastic/backups:/usr/share/elasticsearch/backups
     ports:
       - ${ES_PORT}:9200
     environment:
@@ -100,8 +90,6 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-      - path.repo=/usr/share/elasticsearch/backup                         # Set /usr/share/elasticsearch/backup 
-
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
@@ -124,8 +112,6 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata02:/usr/share/elasticsearch/data
-      - /srv/docker-compose/elastic/backups:/usr/share/elasticsearch/backups
-
     environment:
       - node.name=es02
       - cluster.name=${CLUSTER_NAME}
@@ -143,7 +129,6 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-      - path.repo=/usr/share/elasticsearch/backup
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:
@@ -166,7 +151,6 @@ services:
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata03:/usr/share/elasticsearch/data
-      - /srv/docker-compose/elastic/backups:/usr/share/elasticsearch/backups
     environment:
       - node.name=es03
       - cluster.name=${CLUSTER_NAME}
@@ -184,8 +168,6 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-      - path.repo=/usr/share/elasticsearch/backup
-
     mem_limit: ${MEM_LIMIT}
     ulimits:
       memlock:

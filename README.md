@@ -19,4 +19,9 @@ Step_1 ( Basic Requirements )
 Step_2 ( Setup & Clustering )
 -----------------------------
 
-[ElasticSearch Config](README.md)
+[ElasticSearch Setup](Cluster-Setup.md)
+
+Step_3 ( Snapshot & Restore )
+-----------------------------
+
+[ElasticSearch Setup](Cluster-Setup.md)
