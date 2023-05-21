@@ -15,7 +15,6 @@ Step_1 ( Basic Requirements )
 
 [Basic Commands](BasicCommands.md)
 
-
 Step_2 ( Setup & Clustering )
 -----------------------------
 

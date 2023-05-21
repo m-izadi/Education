@@ -5,6 +5,18 @@ docker-compose up -d
 
 # Docker-compose
 
+## Requirements
+
+    Note:
+
+        * Make sure that Docker is allotted at least 4GB of memory.
+        
+        * if Container dont run and give this error " Native controller process has stopped - no new native processes can be started "
+        
+             set in linux
+                 sysctl -w vm.max_map_count=262144
+        
+         Link: https://stackoverflow.com/questions/60182669/elastic-search-error-native-controller-process-has-stopped-no-new-native-pro      
 # Step1 
 
 ### Docker-Compose
@@ -40,11 +52,3 @@ ____________________________________________________________________
 
 --------------------------------------------------------------------
 
-## Note:
-
-   * Make sure that Docker is allotted at least 4GB of memory.
-
-   * if Container dont run and give this error " Native controller process has stopped - no new native processes can be started "
-        set in linux
-            sysctl -w vm.max_map_count=262144
-    Link: https://stackoverflow.com/questions/60182669/elastic-search-error-native-controller-process-has-stopped-no-new-native-pro      
