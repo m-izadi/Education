@@ -44,8 +44,8 @@ services:
       timeout: 10s
       retries: 120
     networks:
-      - elastic
+      - efk
 networks:
   elastic:
     external: true
-    name: elastic
+    name: efk
